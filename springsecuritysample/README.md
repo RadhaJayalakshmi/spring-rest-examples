@@ -10,4 +10,5 @@ In realtime application the separation of layer is required and so the communica
 In DAO while creating user, no specific verification done for existence of user. In realtime this will not be the case as there will be verification if the same user already exist.
 ## Database
 In memory Embedded Derby DB is used for this sample application. So, the object creation and drop will be managed during the lifetime of the application.
-
+## TestClient
+A standalone RESTclient - SpringRestClient is written in the test folder, which basically tests the GET,POST,PUT,DELETE operations
