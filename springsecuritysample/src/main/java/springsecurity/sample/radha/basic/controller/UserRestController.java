@@ -18,7 +18,7 @@ public class UserRestController {
     private UserService userService;
 
     //-------------- Retrieve All Users ------------------
-    @RequestMapping(value = "/user/", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.findAll();
         if(users.isEmpty()) {
@@ -47,7 +47,7 @@ public class UserRestController {
     }
 
     //---------------- Update User --------------------------
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> updateUser(@PathVariable("id") long id, @RequestBody User user) {
         User currentUser = userService.find(id);
         if (currentUser==null) {

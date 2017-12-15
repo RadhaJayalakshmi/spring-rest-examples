@@ -65,7 +65,7 @@ public class SpringRestClient {
     private static void createUser() {
         System.out.println("\nTesting create User API----------");
         RestTemplate restTemplate = new RestTemplate();
-        User user = new User("Sarah",51,70000.00);
+        User user = new User(14L,"Sarah",51,70000.00);
         HttpEntity<Object> request = new HttpEntity<Object>(user, getHeaders());
         URI uri = restTemplate.postForLocation(REST_SERVICE_URI+"/user/", request, User.class);
         System.out.println("Location : "+uri.toASCIIString());
@@ -77,7 +77,7 @@ public class SpringRestClient {
     private static void updateUser() {
         System.out.println("\nTesting update User API----------");
         RestTemplate restTemplate = new RestTemplate();
-        User user  = new User("Radha",33, 35000);
+        User user  = new User(23L,"Radha",33, 35000);
         HttpEntity<Object> request = new HttpEntity<Object>(user, getHeaders());
         ResponseEntity<User> response = restTemplate.exchange(REST_SERVICE_URI+"/user/1", HttpMethod.PUT, request, User.class);
         System.out.println(response.getBody());
